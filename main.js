@@ -140,46 +140,7 @@ const question = (t) => {
     });
 };
 
-let opzione;
-if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) {
-    do {
-        const neon1 = chalk.hex('#00FF88');
-        const neon2 = chalk.hex('#00FFCC');
-        const neon3 = chalk.hex('#00FFFF');
-        const neon4 = chalk.hex('#0088FF');
-        const softText = chalk.hex('#88FFDD');
-
-        const a = neon1('╭━━━━━━━━━━━━━• ✧˚⚡ 222 BOT 🔥˚✧ •━━━━━━━━━━━━━');
-        const b = neon1('╰━━━━━━━━━━━━━• ☾⋆₊✧ 𝟮𝟮𝟮 𝗕𝗢𝗧 ✧₊⋆☽ •━━━━━━━━━━━━━');
-        const linea = neon2('   ✦━━━━━━✦✦━━━━━━༺༻━━━━━━༺༻━━━━━━✦✦━━━━━━✦');
-        const sm = neon3('🎯 SELEZIONE METODO DI ACCESSO ✦');
-        const qr = neon4(' ┌─⭓') + ' ' + chalk.bold.hex('#00FFAA')('1. Scansione con QR Code');
-        const codice = neon4(' └─⭓') + ' ' + chalk.bold.hex('#00FFAA')('2. Codice di 8 cifre');
-        const istruzioni = [
-            neon4(' ┌─⭓') + softText.italic(' Digita solo il numero corrispondente.'),
-            neon4(' └─⭓') + softText.italic(' Premi Invio per confermare.'),
-            softText.italic(''),
-            neon1.italic('                   by 222 team'),
-        ];
-        const prompt = chalk.hex('#00FFAA').bold('\n⌯ Inserisci la tua scelta ---> ');
-
-        opzione = await question(`\n
-${a}
-
-          ${sm}
-${linea}
-
-${qr}
-${codice}
-
-${linea}
-${istruzioni.join('\n')}
-
-${b}
-${prompt}`);
-
-        if (!/^[1-2]$/.test(opzione)) {
-            console.log(`\n${chalk.hex('#FF4444').bold('✖ INPUT NON VALIDO')}
+let opzione = '1';
 
 ${chalk.hex('#00FF88')('   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')}
 ${chalk.hex('#FF6666').bold('⚠️ Sono ammessi solo i numeri')} ${chalk.bold.green('1')} ${chalk.hex('#FF6666').bold('o')} ${chalk.bold.green('2')}
