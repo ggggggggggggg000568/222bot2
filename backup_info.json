@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-10-03T15:11:32.463Z",
+  "nodeVersion": "v22.19.0",
+  "platform": "linux",
+  "botDirectory": "/root/filo",
+  "excluded": [
+    "node_modules",
+    ".git",
+    "tmp",
+    "cache",
+    "session",
+    "baileys_store",
+    "logs",
+    ".vscode",
+    ".github"
+  ]
+}

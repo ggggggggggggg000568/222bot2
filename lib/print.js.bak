@@ -1,0 +1,178 @@
+import PhoneNumber from 'awesome-phonenumber'
+import chalk from 'chalk'
+import { watchFile } from 'fs'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+const terminalImage = global.opts?.img ? require('terminal-image') : ''
+const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g
+
+// ✦ 222 BOT ✦ 
+export default async function (m, conn = { user: {} }) {
+  if (!global.messageUpdateListenerSet) {
+    conn.ev.on('messages.update', (updates) => {
+      for (const update of updates) {
+        if (update.update.message?.editedMessage) {
+          const edited = update.update.message.editedMessage.message?.conversation ||
+                         update.update.message.editedMessage.message?.extendedTextMessage?.text ||
+                         update.update.message.editedMessage.message?.imageMessage?.caption ||
+                         'Contenuto non disponibile'
+          let oldContent = 'Contenuto originale non disponibile'
+          try {
+            const originalMsg = global.store?.getMessage(update.key)
+            if (originalMsg) {
+              oldContent = originalMsg.message?.conversation ||
+                           originalMsg.message?.extendedTextMessage?.text ||
+                           originalMsg.message?.imageMessage?.caption ||
+                           'Contenuto originale non disponibile'
+            }
+          } catch {}
+          console.log(chalk.hex('#d1b3ff')(`💅 Messaggio editato: `) + chalk.white(`${oldContent} → ${edited}`))
+        } else if (update.update.message === null) {
+          console.log(chalk.hex('#ff66b3')('💨 Messaggio eliminato:'), chalk.gray(update.key.id))
+        }
+      }
+    })
+    global.messageUpdateListenerSet = true
+  }
+
+  if (!m || m.key?.fromMe) return
+
+  try {
+    const senderJid = conn.decodeJid(m.sender)
+    const chatJid = conn.decodeJid(m.chat || '')
+    const botJid = conn.decodeJid(conn.user?.jid)
+    if (!chatJid) return
+
+    const _name = await conn.getName(senderJid) || ''
+    const sender = formatPhoneNumber(senderJid, _name)
+    const chat = await conn.getName(chatJid) || 'Chat Sconosciuta'
+    const me = formatPhoneNumber(botJid || '', conn.user?.name || 'Bot')
+
+    const isGroup = chatJid.endsWith('@g.us')
+    const isOwner = Array.isArray(global.owner)
+      ? global.owner.map(([n]) => n).includes(senderJid.split('@')[0])
+      : global.owner === senderJid.split('@')[0]
+    const isAdmin = isGroup ? await checkAdmin(conn, chatJid, senderJid) : false
+    const isPremium = global.prems?.includes(senderJid)
+    const isBanned = global.DATABASE?.data?.users?.[senderJid]?.banned
+
+    const user = global.DATABASE?.data?.users?.[senderJid] || { exp: '?', money: '?' }
+
+    // 🖼️ Media preview
+    const img = global.opts?.img && /image|sticker|video/i.test(m.mtype)
+      ? await terminalImage.buffer(await m.download()).catch(() => '')
+      : ''
+
+    // 💜 Trap Luxury Colors
+    const c = {
+      gold: chalk.hex('#ffd700'),
+      violet: chalk.hex('#b18bff'),
+      white: chalk.whiteBright,
+      accent: chalk.hex('#f0b3ff'),
+      line: chalk.hex('#8e7dff'),
+      dim: chalk.hex('#aaaaaa'),
+      red: chalk.hex('#ff6f91'),
+      bg: chalk.bgHex('#3b0d95'),
+    }
+
+    const top = c.line.bold(`╭───「 ${c.gold.bold('✦ 𝟚𝟚𝟚 ʙᴏᴛ ✦')} 」───╮`)
+    const bottom = c.line.bold(`╰────────────────────────────╯`)
+
+    const ts = formatTimestamp(m.messageTimestamp)
+    const tipo = (m.mtype || 'unknown').replace(/Message/gi, '')
+
+    const righe = [
+      `${top}`,
+      `${c.line('│')} ${c.gold('👑 Bot:')} ${c.violet(me)}`,
+      `${c.line('│')} ${c.gold('⏰ Ora:')} ${c.white(ts)}`,
+      `${c.line('│')} ${c.gold('💬 Chat:')} ${c.violet(chat)}${isGroup ? c.dim(' (gruppo)') : c.dim(' (privato)')}`,
+      `${c.line('│')} ${c.gold('📨 Tipo:')} ${c.white(tipo)}`,
+      `${c.line('│')} ${c.gold('👤 Da:')} ${c.violet(sender)} ${getUserStatus(isOwner, isAdmin, isPremium, isBanned, c)}`,
+    ]
+
+    if (m.isCommand) righe.push(`${c.line('│')} ${c.gold('⚙️ Comando:')} ${c.white(getCommand(m.text))}`)
+    if (user.exp !== '?') righe.push(`${c.line('│')} ${c.gold('⭐ EXP:')} ${c.violet(user.exp)}${user.money !== '?' ? c.dim(' | 💰 ') + c.violet(user.money) : ''}`)
+    righe.push(bottom)
+
+    // stampa cornice base
+    console.log('\n' + righe.join('\n'))
+    if (img) console.log(img.trimEnd())
+
+    // ✉️ Stampa testo o caption (ORA FUNZIONA)
+    const text = await formatText(m, conn)
+    if (text) console.log(text)
+
+  } catch (error) {
+    console.error(chalk.red('💥 Errore in 222 Print:'), error.message)
+  }
+}
+
+// 🔢 Formattazione numero telefono
+function formatPhoneNumber(jid, name) {
+  if (!jid) return 'Sconosciuto'
+  let num = jid.split('@')[0].split(':')[0]
+  try {
+    const number = PhoneNumber('+' + num).getNumber('international')
+    return number + (name ? ` ~${name}` : '')
+  } catch {
+    return num + (name ? ` ~${name}` : '')
+  }
+}
+
+// 👑 Controllo admin
+async function checkAdmin(conn, chatId, senderId) {
+  try {
+    const decoded = conn.decodeJid(senderId)
+    const meta = await conn.groupMetadata(chatId)
+    return meta?.participants?.some(p =>
+      conn.decodeJid(p.id) === decoded && (p.admin === 'admin' || p.admin === 'superadmin')
+    )
+  } catch {
+    return false
+  }
+}
+
+// 🏷️ Stato utente
+function getUserStatus(isOwner, isAdmin, isPremium, isBanned, c) {
+  const s = []
+  if (isOwner) s.push(c.gold('👑 Owner'))
+  if (isAdmin) s.push(c.violet('🕶 Admin'))
+  if (isPremium) s.push(c.accent('💎 Premium'))
+  if (isBanned) s.push(c.red('⛔ Bannato'))
+  return s.length ? c.dim('[') + s.join(c.dim(' | ')) + c.dim(']') : ''
+}
+
+// ⚙️ Formattazioni varie
+function getCommand(text) {
+  if (!text) return ''
+  return text.split(' ')[0].slice(1)
+}
+
+function formatTimestamp(ts) {
+  const d = ts ? new Date(ts * 1000) : new Date()
+  return d.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+}
+
+// 🖋️ Formattazione testo messaggi
+async function formatText(m, conn) {
+  const textRaw = m.text || m.caption
+  if (!textRaw) return ''
+  let text = textRaw.replace(/\u200e+/g, '')
+
+  text = text.replace(urlRegex, url => chalk.hex('#9e8cff')(url))
+  text = text.replace(/\*([^*]+)\*/g, (_, t) => chalk.bold(t))
+  text = text.replace(/_([^_]+)_/g, (_, t) => chalk.italic(t))
+  text = text.replace(/~([^~]+)~/g, (_, t) => chalk.dim.underline(t))
+  text = text.replace(/#[\w\u0590-\u05ff]+/g, tag => chalk.hex('#b9a0ff')(tag))
+
+  return chalk.whiteBright(text.trim() || '[Messaggio Vuoto]')
+}
+
+// 🔄 Watcher aggiornamenti file
+watchFile(__filename, () => {
+  console.log(chalk.bgHex('#6a0dad')(chalk.white.bold(" File 'lib/print.js' aggiornato ✦ ")))
+})

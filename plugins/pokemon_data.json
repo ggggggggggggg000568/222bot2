@@ -1,0 +1,888 @@
+{
+  "users": {
+    "393201448716@s.whatsapp.net": {
+      "pokemons": [
+        {
+          "id": 1753710374946,
+          "name": "Jigglypuff",
+          "types": [
+            "Normal",
+            "Fairy"
+          ],
+          "rarity": "uncommon",
+          "base_experience": 95,
+          "level": 22,
+          "caughtAt": "2025-07-28T13:46:14.947Z",
+          "iv": 1,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710694876,
+          "name": "Machamp",
+          "types": [
+            "Fighting"
+          ],
+          "rarity": "rare",
+          "base_experience": 253,
+          "level": 16,
+          "caughtAt": "2025-07-28T13:51:34.876Z",
+          "iv": 20,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710742208,
+          "name": "Victreebel",
+          "types": [
+            "Grass",
+            "Poison"
+          ],
+          "rarity": "rare",
+          "base_experience": 245,
+          "level": 23,
+          "caughtAt": "2025-07-28T13:52:22.208Z",
+          "iv": 16,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710747687,
+          "name": "Metapod",
+          "types": [
+            "Bug"
+          ],
+          "rarity": "common",
+          "base_experience": 72,
+          "level": 15,
+          "caughtAt": "2025-07-28T13:52:27.687Z",
+          "iv": 8,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710760929,
+          "name": "Ekans",
+          "types": [
+            "Poison"
+          ],
+          "rarity": "common",
+          "base_experience": 58,
+          "level": 12,
+          "caughtAt": "2025-07-28T13:52:40.929Z",
+          "iv": 5,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710764897,
+          "name": "Grimer",
+          "types": [
+            "Poison"
+          ],
+          "rarity": "common",
+          "base_experience": 65,
+          "level": 12,
+          "caughtAt": "2025-07-28T13:52:44.897Z",
+          "iv": 26,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710769264,
+          "name": "Sandshrew",
+          "types": [
+            "Ground"
+          ],
+          "rarity": "common",
+          "base_experience": 60,
+          "level": 15,
+          "caughtAt": "2025-07-28T13:52:49.264Z",
+          "iv": 2,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753711460543,
+          "name": "Seadra",
+          "types": [
+            "Water"
+          ],
+          "rarity": "uncommon",
+          "base_experience": 154,
+          "level": 21,
+          "caughtAt": "2025-07-28T14:04:20.543Z",
+          "iv": 1,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753711468383,
+          "name": "Exeggutor",
+          "types": [
+            "Grass",
+            "Psychic"
+          ],
+          "rarity": "rare",
+          "base_experience": 186,
+          "level": 23,
+          "caughtAt": "2025-07-28T14:04:28.383Z",
+          "iv": 4,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753713698049,
+          "name": "Goldeen",
+          "types": [
+            "Water"
+          ],
+          "rarity": "common",
+          "base_experience": 64,
+          "level": 14,
+          "caughtAt": "2025-07-28T14:41:38.049Z",
+          "iv": 0,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753713735163,
+          "name": "Tentacool",
+          "types": [
+            "Water",
+            "Poison"
+          ],
+          "rarity": "common",
+          "base_experience": 67,
+          "level": 8,
+          "caughtAt": "2025-07-28T14:42:15.163Z",
+          "iv": 14,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753713945932,
+          "name": "Nidoran♂",
+          "types": [
+            "Poison"
+          ],
+          "rarity": "common",
+          "base_experience": 55,
+          "level": 3,
+          "caughtAt": "2025-07-28T14:45:45.932Z",
+          "iv": 7,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753714066162,
+          "name": "Oddish",
+          "types": [
+            "Grass",
+            "Poison"
+          ],
+          "rarity": "common",
+          "base_experience": 64,
+          "level": 9,
+          "caughtAt": "2025-07-28T14:47:46.162Z",
+          "iv": 6,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753730635861,
+          "name": "Charmander",
+          "types": [
+            "Fire"
+          ],
+          "rarity": "uncommon",
+          "base_experience": 62,
+          "level": 18,
+          "caughtAt": "2025-07-28T19:23:55.861Z",
+          "iv": 13,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753736894157,
+          "name": "Goldeen",
+          "types": [
+            "Water"
+          ],
+          "rarity": "common",
+          "base_experience": 64,
+          "level": 8,
+          "caughtAt": "2025-07-28T21:08:14.157Z",
+          "iv": 3,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        }
+      ],
+      "packInventory": {
+        "base": 0,
+        "premium": 0,
+        "darkness": 0,
+        "rare": 0,
+        "uncommon": 0
+      },
+      "money": 188,
+      "pityCounter": 0,
+      "catchesInSession": 9
+    },
+    "420797800788@s.whatsapp.net": {
+      "pokemons": [
+        {
+          "id": 1753710423914,
+          "name": "Poliwhirl",
+          "types": [
+            "Water"
+          ],
+          "rarity": "uncommon",
+          "base_experience": 135,
+          "level": 11,
+          "caughtAt": "2025-07-28T13:47:03.914Z",
+          "iv": 2,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710428339,
+          "name": "Exeggutor",
+          "types": [
+            "Grass",
+            "Psychic"
+          ],
+          "rarity": "rare",
+          "base_experience": 186,
+          "level": 34,
+          "caughtAt": "2025-07-28T13:47:08.339Z",
+          "iv": 11,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710431558,
+          "name": "Eevee",
+          "types": [
+            "Normal"
+          ],
+          "rarity": "rare",
+          "base_experience": 65,
+          "level": 33,
+          "caughtAt": "2025-07-28T13:47:11.558Z",
+          "iv": 0,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710456488,
+          "name": "Dugtrio",
+          "types": [
+            "Ground"
+          ],
+          "rarity": "uncommon",
+          "base_experience": 149,
+          "level": 20,
+          "caughtAt": "2025-07-28T13:47:36.488Z",
+          "iv": 7,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710590096,
+          "name": "Golem",
+          "types": [
+            "Rock",
+            "Ground"
+          ],
+          "rarity": "rare",
+          "base_experience": 248,
+          "level": 20,
+          "caughtAt": "2025-07-28T13:49:50.096Z",
+          "iv": 29,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710776829,
+          "name": "Spearow",
+          "types": [
+            "Normal",
+            "Flying"
+          ],
+          "rarity": "common",
+          "base_experience": 52,
+          "level": 11,
+          "caughtAt": "2025-07-28T13:52:56.829Z",
+          "iv": 21,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710783223,
+          "name": "Golbat",
+          "types": [
+            "Poison",
+            "Flying"
+          ],
+          "rarity": "uncommon",
+          "base_experience": 159,
+          "level": 16,
+          "caughtAt": "2025-07-28T13:53:03.223Z",
+          "iv": 23,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710785627,
+          "name": "Diglett",
+          "types": [
+            "Ground"
+          ],
+          "rarity": "common",
+          "base_experience": 53,
+          "level": 5,
+          "caughtAt": "2025-07-28T13:53:05.627Z",
+          "iv": 6,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710809592,
+          "name": "Mankey",
+          "types": [
+            "Fighting"
+          ],
+          "rarity": "common",
+          "base_experience": 61,
+          "level": 5,
+          "caughtAt": "2025-07-28T13:53:29.592Z",
+          "iv": 28,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710818071,
+          "name": "Charmeleon",
+          "types": [
+            "Fire"
+          ],
+          "rarity": "rare",
+          "base_experience": 142,
+          "level": 31,
+          "caughtAt": "2025-07-28T13:53:38.071Z",
+          "iv": 27,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        },
+        {
+          "id": 1753710841244,
+          "name": "Pidgey",
+          "types": [
+            "Normal",
+            "Flying"
+          ],
+          "rarity": "common",
+          "base_experience": 50,
+          "level": 8,
+          "caughtAt": "2025-07-28T13:54:01.244Z",
+          "iv": 4,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        }
+      ],
+      "packInventory": {
+        "base": 0
+      },
+      "money": 1000,
+      "pityCounter": 0
+    },
+    "380950354295@s.whatsapp.net": {
+      "pokemons": [
+        {
+          "id": 1753710789902,
+          "name": "Wigglytuff",
+          "types": [
+            "Normal",
+            "Fairy"
+          ],
+          "rarity": "rare",
+          "base_experience": 196,
+          "level": 26,
+          "caughtAt": "2025-07-28T13:53:09.902Z",
+          "iv": 1,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        }
+      ],
+      "packInventory": {
+        "base": 2
+      },
+      "money": 1000,
+      "pityCounter": 0
+    },
+    "393514546610@s.whatsapp.net": {
+      "pokemons": [
+        {
+          "id": 1753730651604,
+          "name": "Magneton",
+          "types": [
+            "Electric",
+            "Steel"
+          ],
+          "rarity": "rare",
+          "base_experience": 163,
+          "level": 27,
+          "caughtAt": "2025-07-28T19:24:11.604Z",
+          "iv": 31,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        }
+      ],
+      "packInventory": {
+        "common": 1,
+        "uncommon": 0,
+        "rare": 0,
+        "epic": 0,
+        "legendary": 0,
+        "mythic": 0
+      },
+      "money": 1104,
+      "pityCounter": 0,
+      "lastCatchTime": 1753730651604,
+      "catchesInSession": 1,
+      "depositi": 0,
+      "prelievi": 0
+    },
+    "27746449887@s.whatsapp.net": {
+      "pokemons": [],
+      "packInventory": {
+        "common": 1,
+        "uncommon": 0,
+        "rare": 0,
+        "epic": 0,
+        "legendary": 0,
+        "mythic": 0
+      },
+      "money": 1000,
+      "pityCounter": 3,
+      "lastCatchTime": 1753945128778,
+      "catchesInSession": 3,
+      "depositi": 0,
+      "prelievi": 0
+    },
+    "390935931875@s.whatsapp.net": {
+      "pokemons": [],
+      "packInventory": {
+        "common": 1,
+        "uncommon": 0,
+        "rare": 0,
+        "epic": 0,
+        "legendary": 0,
+        "mythic": 0
+      },
+      "money": 1000,
+      "pityCounter": 0,
+      "lastCatchTime": 0,
+      "catchesInSession": 0,
+      "depositi": 0,
+      "prelievi": 0
+    },
+    "393201906964@s.whatsapp.net": {
+      "pokemons": [
+        {
+          "id": 1753990822069,
+          "name": "Bulbasaur",
+          "types": [
+            "Grass",
+            "Poison"
+          ],
+          "rarity": "uncommon",
+          "base_experience": 64,
+          "level": 20,
+          "caughtAt": "2025-07-31T19:40:22.069Z",
+          "iv": 28,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        }
+      ],
+      "packInventory": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "epic": 0,
+        "legendary": 0,
+        "mythic": 0
+      },
+      "money": 1000,
+      "pityCounter": 0,
+      "lastCatchTime": 0,
+      "catchesInSession": 0,
+      "depositi": 0,
+      "prelievi": 0
+    },
+    "393780399505@s.whatsapp.net": {
+      "pokemons": [
+        {
+          "id": 1753991045178,
+          "name": "Ponyta",
+          "types": [
+            "Fire"
+          ],
+          "rarity": "uncommon",
+          "base_experience": 82,
+          "level": 5,
+          "caughtAt": "2025-07-31T19:44:05.178Z",
+          "iv": 14,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        }
+      ],
+      "packInventory": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "epic": 0,
+        "legendary": 0,
+        "mythic": 0
+      },
+      "money": 1000,
+      "pityCounter": 0,
+      "lastCatchTime": 0,
+      "catchesInSession": 0,
+      "depositi": 0,
+      "prelievi": 0
+    },
+    "393272556689@s.whatsapp.net": {
+      "pokemons": [],
+      "packInventory": {
+        "common": 1,
+        "uncommon": 0,
+        "rare": 0,
+        "epic": 0,
+        "legendary": 0,
+        "mythic": 0
+      },
+      "money": 1000,
+      "pityCounter": 0,
+      "lastCatchTime": 0,
+      "catchesInSession": 0,
+      "depositi": 0,
+      "prelievi": 0
+    },
+    "447832666396@s.whatsapp.net": {
+      "pokemons": [
+        {
+          "id": 1757360883150,
+          "name": "Rhydon",
+          "types": [
+            "Ground",
+            "Rock"
+          ],
+          "rarity": "rare",
+          "base_experience": 170,
+          "level": 32,
+          "caughtAt": "2025-09-08T19:48:03.150Z",
+          "iv": 5,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        }
+      ],
+      "packInventory": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "epic": 0,
+        "legendary": 0,
+        "mythic": 0
+      },
+      "money": 1000,
+      "pityCounter": 0,
+      "lastCatchTime": 0,
+      "catchesInSession": 0,
+      "depositi": 0,
+      "prelievi": 0
+    },
+    "393514357738@s.whatsapp.net": {
+      "pokemons": [],
+      "packInventory": {
+        "common": 1,
+        "uncommon": 0,
+        "rare": 0,
+        "epic": 0,
+        "legendary": 0,
+        "mythic": 0
+      },
+      "money": 1000,
+      "pityCounter": 0,
+      "lastCatchTime": 0,
+      "catchesInSession": 0,
+      "depositi": 0,
+      "prelievi": 0
+    },
+    "393270466066@s.whatsapp.net": {
+      "pokemons": [
+        {
+          "id": 1759419062259,
+          "name": "Kakuna",
+          "types": [
+            "Bug",
+            "Poison"
+          ],
+          "rarity": "common",
+          "base_experience": 72,
+          "level": 12,
+          "caughtAt": "2025-10-02T15:31:02.259Z",
+          "iv": 15,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        }
+      ],
+      "packInventory": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "epic": 0,
+        "legendary": 0,
+        "mythic": 0
+      },
+      "money": 1000,
+      "pityCounter": 0,
+      "lastCatchTime": 0,
+      "catchesInSession": 0,
+      "depositi": 0,
+      "prelievi": 0
+    },
+    "47103258673311@lid": {
+      "pokemons": [
+        {
+          "id": 1759419062563,
+          "name": "Fearow",
+          "types": [
+            "Normal",
+            "Flying"
+          ],
+          "rarity": "uncommon",
+          "base_experience": 155,
+          "level": 25,
+          "caughtAt": "2025-10-02T15:31:02.563Z",
+          "iv": 9,
+          "ev": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0
+          }
+        }
+      ],
+      "packInventory": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "epic": 0,
+        "legendary": 0,
+        "mythic": 0
+      },
+      "money": 1000,
+      "pityCounter": 0,
+      "lastCatchTime": 0,
+      "catchesInSession": 0,
+      "depositi": 0,
+      "prelievi": 0
+    }
+  }
+}
