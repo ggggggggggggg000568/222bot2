@@ -142,15 +142,6 @@ const question = (t) => {
 
 let opzione = '1';
 
-${chalk.hex('#00FF88')('   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')}
-${chalk.hex('#FF6666').bold('⚠️ Sono ammessi solo i numeri')} ${chalk.bold.green('1')} ${chalk.hex('#FF6666').bold('o')} ${chalk.bold.green('2')}
-${chalk.hex('#88FFCC')('┌─⭓ Nessuna lettera o simbolo')}
-${chalk.hex('#88FFCC')('└─⭓ Copia il numero dell\'opzione desiderata e incollalo')}
-${chalk.hex('#00FFAA').italic('\n✧ Suggerimento: Per assistenza contatta il supporto')}
-`);
-        }
-    } while ((opzione !== '1' && opzione !== '2') || fs.existsSync(`./${authFile}/creds.json`));
-}
 
 const filterStrings = [
     "Q2xvc2luZyBzdGFsZSBvcGVu",
