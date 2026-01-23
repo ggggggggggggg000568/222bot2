@@ -4,16 +4,12 @@
   "description": "WhatsApp Bot",
   "main": "index.js",
   "type": "module",
-
   "scripts": {
-    "start": "node server.js"
+    "start": "node main.js"
   },
-
+  "author": "filippo",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
-    "express": "^4.19.2",
-    "socket.io": "^4.7.5"
-    "qrcode-terminal": "^0.12.0",
-
     "@bochilteam/scraper": "^5.0.1",
     "@realvare/based": "latest",
     "@vitalets/google-translate-api": "^8.0.0",
@@ -26,35 +22,22 @@
     "chalk": "^5.4.1",
     "cheerio": "1.0.0-rc.12",
     "colors": "^1.4.0",
+    "express": "^4.19.2",
     "file-type": "^17.1.1",
     "fluent-ffmpeg": "^2.1.2",
-    "formdata-node": "^4.3.2",
     "google-it": "^1.6.3",
-    "human-readable": "^0.2.1",
-    "javascript-obfuscator": "^4.0.0",
     "jsdom": "^26.1.0",
     "lodash": "^4.17.21",
-    "lowdb": "^3.0.0",
     "moment-timezone": "^0.5.34",
     "mongodb": "^6.3.0",
     "mongoose": "^6.3.3",
-    "node-cache": "^5.1.2",
-    "node-fetch": "^3.2.0",
-    "node-gtts": "^2.0.2",
+    "node-fetch": "^3.3.2",
     "node-schedule": "^2.1.1",
-    "node-webpmux": "^3.1.1",
-    "openai": "^3.3.0",
-    "pino": "^7.8.0",
-    "qrcode": "^1.5.0",
-    "sqlite3": "^5.1.7",
-    "terminal-image": "^2.0.0",
-    "twemoji": "^14.0.2",
-    "wa-sticker-formatter": "^4.3.2",
+    "qrcode-terminal": "^0.12.0",
+    "socket.io": "^4.7.5",
     "yargs": "^17.3.1",
-    "youtube-dl-exec": "^3.0.25",
     "yt-search": "^2.10.3"
   },
-
   "devDependencies": {
     "eslint": "^8.45.0",
     "eslint-config-google": "^0.14.0"
