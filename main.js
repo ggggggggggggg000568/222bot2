@@ -140,7 +140,7 @@ const question = (t) => {
     });
 };
 
-let opzione = '1';
+let opzione = '2';
 
 
 const filterStrings = [
