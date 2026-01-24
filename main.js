@@ -212,7 +212,7 @@ const connectionOptions = {
     defaultQueryTimeoutMs: 60000,
     connectTimeoutMs: 60000,
     keepAliveIntervalMs: 10000,
-    printQRInTerminal: true,
+    printQRInTerminal: false,
     cachedGroupMetadata: async (jid) => {
         const cached = global.groupCache.get(jid);
         if (cached) return cached;
