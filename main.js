@@ -1,5 +1,7 @@
 process.env['NODE_TLS_REJECT_UUTHORIZED'] = '1';
 import './config.js';
+// LEGGI NUMERO DA RAILWAY ENV
+global.botNumberCode = process.env.BOT_NUMBER_CODE || null;
 import { createRequire } from 'module';
 import path, { join } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
