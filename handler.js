@@ -371,7 +371,14 @@ export async function handler(chatUpdate) {
                 let hl = _prefix 
                 let adminMode = global.db.data.chats[m.chat]?.modoadmin
                 let mystica = `${plugin.botAdmin || plugin.admin || plugin.group || plugin || noPrefix || hl || m.text.slice(0, 1) == hl || plugin.command}`
-                if (adminMode && !isOwner && !isROwner && m.isGroup && !isAdmin && mystica) return
+                if (
+  adminMode &&
+  m.isGroup &&
+  !isOwner &&
+  !isROwner &&
+  !isAdmin &&
+  (plugin.admin || plugin.botAdmin)
+) return
 
                 // Controlli permessi
                 if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) {
