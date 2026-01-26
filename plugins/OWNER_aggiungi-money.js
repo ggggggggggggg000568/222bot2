@@ -1,32 +1,41 @@
-const handler = async (m, { conn, args }) => {
-  let target
-
-  // 1️⃣ se tagghi qualcuno
-  if (m.mentionedJid && m.mentionedJid.length) {
-    target = m.mentionedJid[0]
-
-  // 2️⃣ se rispondi a un messaggio
-  } else if (m.quoted) {
-    target = m.quoted.sender
+let handler = async (m, { conn, args }) => {
+  // 🔒 solo owner
+  if (!m.isOwner) {
+    return conn.reply(m.chat, 'Questo comando è solo per owner 👑', m)
   }
+
+  // 👤 prende utente da menzione o reply
+  let target =
+    m.mentionedJid?.[0] ||
+    (m.quoted ? m.quoted.sender : null)
 
   if (!target) {
     return conn.reply(m.chat, 'Inserisci la menzione nel comando!', m)
   }
 
-  const user = global.db.data.users[target]
-  if (!user) {
-    return conn.reply(m.chat, 'Utente non trovato nel database!', m)
+  // 💰 quantità
+  let amount = parseInt(args[1] || args[0])
+  if (!amount || isNaN(amount) || amount <= 0) {
+    return conn.reply(m.chat, 'Inserisci una quantità valida!', m)
   }
 
-  const amount = parseInt(args[args.length - 1])
-  if (isNaN(amount) || amount <= 0) {
-    return conn.reply(m.chat, 'Inserisci un numero valido!', m)
+  // 🧠 CREA UTENTE SE NON ESISTE
+  if (!global.db.data.users[target]) {
+    global.db.data.users[target] = {
+      money: 0,
+      bank: 0,
+      exp: 0,
+      limit: 20,
+      level: 0,
+      registered: false
+    }
   }
 
-  user.bank = (user.bank || 0) + amount
+  // ➕ aggiunge in BANCA
+  global.db.data.users[target].bank += amount
 
-  conn.reply(
+  // ✅ conferma
+  await conn.reply(
     m.chat,
     `💰 Ho aggiunto *${amount}€* in banca a @${target.split('@')[0]}`,
     m,
@@ -34,6 +43,8 @@ const handler = async (m, { conn, args }) => {
   )
 }
 
+handler.help = ['addmoney @user <quantità>']
+handler.tags = ['owner']
 handler.command = /^addmoney$/i
 handler.owner = true
 
