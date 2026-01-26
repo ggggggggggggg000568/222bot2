@@ -1,20 +1,40 @@
-const handler = async (m) => {
-  const mention = m.mentionedJid[0] || (m.quoted ? m.quoted.sender : m.text)
-  const user = global.db.data.users[mention]
+const handler = async (m, { conn, args }) => {
+  let target
 
-  if (!user) return conn.reply(m.chat, 'Inserisci la menzione nel comando!')
+  // 1️⃣ se tagghi qualcuno
+  if (m.mentionedJid && m.mentionedJid.length) {
+    target = m.mentionedJid[0]
 
-  const args = m.text.match(/\d+/)
-  const numMoney = args ? parseInt(args[0]) : 0
-
-  if (numMoney <= 0) {
-      return conn.reply(m.chat, 'Inserisci un numero valido di money da aggiungere!', m)
+  // 2️⃣ se rispondi a un messaggio
+  } else if (m.quoted) {
+    target = m.quoted.sender
   }
 
-  user.money = (user.money || 0) + numMoney
-  conn.reply(m.chat, `Ho aggiunto ${numMoney} money a @${mention.split('@')[0]}`, null, { mentions: [mention] })
+  if (!target) {
+    return conn.reply(m.chat, 'Inserisci la menzione nel comando!', m)
+  }
+
+  const user = global.db.data.users[target]
+  if (!user) {
+    return conn.reply(m.chat, 'Utente non trovato nel database!', m)
+  }
+
+  const amount = parseInt(args[args.length - 1])
+  if (isNaN(amount) || amount <= 0) {
+    return conn.reply(m.chat, 'Inserisci un numero valido!', m)
+  }
+
+  user.bank = (user.bank || 0) + amount
+
+  conn.reply(
+    m.chat,
+    `💰 Ho aggiunto *${amount}€* in banca a @${target.split('@')[0]}`,
+    m,
+    { mentions: [target] }
+  )
 }
 
-handler.command = /^(addmoney)$/i
-handler.owner = true;
+handler.command = /^addmoney$/i
+handler.owner = true
+
 export default handler
