@@ -1,63 +1,37 @@
-let handler = async (m, { args, isOwner }) => {
-  if (!m.isGroup) throw 'Questo comando funziona solo nei gruppi'
-  if (!isOwner) throw 'Questo comando è solo per OWNER 👑'
+let { downloadContentFromMessage } = await import('@realvare/based')
 
+export async function before(m) {
   let chat = global.db.data.chats[m.chat]
-  if (!chat) global.db.data.chats[m.chat] = {}
+  if (!chat?.antiviewonce || chat.isBanned) return
 
-  if (!args[0]) {
-    let status = chat.antiviewonce ? 'ON ✅' : 'OFF ❌'
-    throw `🕵️ ANTIVIEWONCE\n\nStato: ${status}\n\nUsa:\n.antiviewonce on\n.antiviewonce off`
+  // intercetta TUTTI i tipi view once
+  let vo =
+    m.message?.viewOnceMessageV2 ||
+    m.message?.viewOnceMessageV3 ||
+    m.message?.viewOnceMessage
+
+  if (!vo) return
+
+  let msg = vo.message
+  let type = Object.keys(msg)[0]
+  let mediaMsg = msg[type]
+  if (!mediaMsg) return
+
+  let stream = await downloadContentFromMessage(
+    mediaMsg,
+    type.includes('image') ? 'image' : 'video'
+  )
+
+  let buffer = Buffer.from([])
+  for await (const chunk of stream) {
+    buffer = Buffer.concat([buffer, chunk])
   }
 
-  if (args[0] === 'on') {
-    chat.antiviewonce = true
-    return m.reply('✅ AntiviewOnce ATTIVATO (solo owner)')
-  }
+  let caption = mediaMsg.caption || 'Non si nasconde nulla 😈'
 
-  if (args[0] === 'off') {
-    chat.antiviewonce = false
-    return m.reply('❌ AntiviewOnce DISATTIVATO')
+  if (type.includes('video')) {
+    await this.sendFile(m.chat, buffer, 'viewonce.mp4', caption, m)
+  } else if (type.includes('image')) {
+    await this.sendFile(m.chat, buffer, 'viewonce.jpg', caption, m)
   }
 }
-
-handler.before = async (m, { conn }) => {
-  let chat = global.db.data.chats[m.chat]
-  if (!chat?.antiviewonce) return
-
-  // nuove versioni WhatsApp (Baileys)
-  if (
-    m.mtype === 'viewOnceMessageV2' ||
-    m.mtype === 'viewOnceMessageV2Extension'
-  ) {
-    let viewOnce =
-      m.message?.viewOnceMessageV2?.message ||
-      m.message?.viewOnceMessageV2Extension?.message
-
-    if (!viewOnce) return
-
-    let type = Object.keys(viewOnce)[0]
-    let media = viewOnce[type]
-
-    if (!media) return
-
-    let caption = media.caption || '👁️ ANTIVIEWONCE'
-
-    await conn.sendMessage(
-      m.chat,
-      {
-        [type.replace('Message', '')]: media,
-        caption
-      },
-      { quoted: m }
-    )
-  }
-}
-
-handler.help = ['antiviewonce on/off']
-handler.tags = ['owner']
-handler.command = /^antiviewonce$/i
-handler.group = true
-handler.owner = true
-
-export default handler
